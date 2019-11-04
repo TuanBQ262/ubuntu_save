@@ -1,0 +1,33 @@
+
+<a href="<?php $this->baseUrl?>/profile/create">Tạo mới profile</a>
+<?php echo $this->form_search; ?>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>Action</th>
+  </tr>
+  <?php if (!$this->paginator)
+        echo '<td colspan="5" style="text-align: center;">Không có profile nào</td>';
+        else
+    ?>
+  <?php
+  foreach ($this->paginator as $row):
+  ?>
+  <tr>
+    <td><?php echo $row->id;?></td>
+    <td><?php echo $row->name;?></td>
+    <td><?php echo $row->email;?></td>
+    <td><?php echo $row->age;?></td>
+    <td>
+        <a href="<?php $this->baseUrl?>/profile/edit/id/<?php echo $row->id;?>">Sửa</a>
+        <a href="<?php $this->baseUrl?>/profile/del/id/<?php echo $row->id;?>"> Xóa</a> 
+    </td>
+  </tr>
+  <?php endforeach;?>
+</table>
+<?php echo $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    'profile/pagination.phtml'); ?>                              

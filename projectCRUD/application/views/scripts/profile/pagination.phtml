@@ -1,0 +1,17 @@
+<?php if ($this->pageCount): ?>
+<div class="paginationControl">
+<?php 
+    echo '<a href="' . $this->url(array('page' => $this->first)). '"> first</a> | ';
+    echo '<a href="' . $this->url(array('page' => $this->previous)). '"> prev</a> | ';
+    foreach ($this->pagesInRange as $page){
+       if ($page != $this->current){
+               echo  '<a href="' . $this->url(array('page' => $page)). '">' . $page . '</a> | ';
+      }else{
+          echo $page . ' | ';
+      }
+   }
+    echo '<a href="' . $this->url(array('page' => $this->next)) . '">next ></a>';
+    echo '<a href="' . $this->url(array('page' => $this->last)) . '">last ></a>';
+  ?>
+</div>
+<?php endif; ?>
