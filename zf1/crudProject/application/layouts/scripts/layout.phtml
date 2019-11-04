@@ -1,0 +1,28 @@
+
+<?php echo $this->doctype();?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>abc</title>
+  <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap.min.css') 
+                              ->appendStylesheet($this->baseUrl().'/css/main.css')  ?>
+  <?php echo $this->headScript()->appendFile($this->baseUrl().'/js/jquery-3.4.1.min.js')
+                                ->appendFile($this->baseUrl().'/js/popper.min.js')
+                                ->appendFile($this->baseUrl().'/js/bootstrap.min.js')
+                                ->appendFile($this->baseUrl().'/js/main.js')?>                            
+</head>
+<body>
+    <div class="wraper container-fluid">
+    <?php echo $this->render('header.phtml') ?>
+    <div class="row">
+    <div class="col-3">
+    <?php echo $this->render('sidebar.phtml') ?>
+    </div>
+    <div class="col-6 content" >
+    <?php echo $this->layout()->content; ?>
+    </div>
+    </div>
+    <?php echo $this->render('footer.phtml') ?>
+    </div>
+</body>
+</html>
